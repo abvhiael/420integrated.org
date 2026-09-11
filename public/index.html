@@ -65,7 +65,7 @@
     .cta{margin:4rem 0 2rem;padding:clamp(2rem,5vw,4.5rem);border:1px solid rgba(101,242,138,.22);border-radius:26px;background:radial-gradient(circle at 90% 20%,rgba(101,242,138,.13),transparent 20rem),linear-gradient(135deg,#0d2115,#08140c);box-shadow:var(--shadow)}
     .cta h2{max-width:760px;margin-bottom:1rem;font-size:clamp(2.3rem,5vw,4.8rem);line-height:.98;letter-spacing:-.055em}.cta p{max-width:680px;color:var(--muted)}
     footer{padding:2.5rem 0 3rem;border-top:1px solid var(--line);color:var(--muted);font-size:.9rem}
-    .footer-row{display:flex;justify-content:space-between;gap:2rem;align-items:center}.footer-links{display:flex;gap:1rem}.footer-links a:hover{color:var(--text)}
+    .footer-row{display:flex;justify-content:space-between;gap:2rem;align-items:center}.footer-links{display:flex;gap:1rem;flex-wrap:wrap}.footer-links a:hover{color:var(--text)}
     @media(max-width:900px){.nav-links a:not(.button){display:none}.hero-grid,.section-heading{grid-template-columns:1fr}.hero{padding-top:5rem}.grid{grid-template-columns:1fr 1fr}.ecosystem-grid{grid-template-columns:1fr 1fr}}
     @media(max-width:620px){.wrap{width:min(calc(100% - 1.25rem),var(--max))}.nav{min-height:64px}.brand-text{font-size:.94rem}.nav-links .button{padding:.6rem .75rem;min-height:40px;font-size:.82rem}h1{font-size:clamp(3rem,18vw,5rem)}.hero-grid{gap:2.5rem}.grid,.ecosystem-grid,.status-row{grid-template-columns:1fr}section{padding:3.5rem 0}.footer-row{flex-direction:column;align-items:flex-start}}
   </style>
@@ -80,6 +80,8 @@
         <a href="/network/">Network</a>
         <a href="/ecosystem/">Ecosystem</a>
         <a href="/developers/">Developers</a>
+        <a href="/docs/">Docs</a>
+        <a href="/about/">About</a>
         <a class="button button-secondary" href="https://github.com/abvhiael/420integrated.org" target="_blank" rel="noreferrer">GitHub</a>
       </nav>
     </div>
@@ -155,7 +157,7 @@
           <div class="eyebrow"><span class="eyebrow-dot"></span> Open development</div>
           <h2>follow the build from source to genesis.</h2>
           <p>420 Integrated is being developed in public on GitHub. Documentation, network interfaces, developer tooling and application integration resources will be connected here as they become ready for use.</p>
-          <div class="hero-actions"><a class="button button-primary" href="/developers/">Developer resources</a><a class="button button-secondary" href="https://github.com/abvhiael/420integrated.org" target="_blank" rel="noreferrer">Open GitHub</a></div>
+          <div class="hero-actions"><a class="button button-primary" href="/developers/">Developer resources</a><a class="button button-secondary" href="/docs/">Documentation</a><a class="button button-secondary" href="https://github.com/abvhiael/420integrated.org" target="_blank" rel="noreferrer">Open GitHub</a></div>
         </div>
       </div>
     </section>
@@ -164,7 +166,7 @@
   <footer>
     <div class="wrap footer-row">
       <div>© 2026 420 Integrated. Genesis infrastructure in active development.</div>
-      <div class="footer-links"><a href="/network/">Network</a><a href="/ecosystem/">Ecosystem</a><a href="/developers/">Developers</a><a href="mailto:contact@420integrated.org">Contact</a></div>
+      <div class="footer-links"><a href="/network/">Network</a><a href="/ecosystem/">Ecosystem</a><a href="/developers/">Developers</a><a href="/docs/">Docs</a><a href="/about/">About</a><a href="mailto:contact@420integrated.org">Contact</a></div>
     </div>
   </footer>
 </body>
