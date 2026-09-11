@@ -8,394 +8,84 @@
   <title>420 Integrated | Blockchain Ecosystem</title>
   <style>
     :root {
-      --bg: #07110b;
-      --bg-soft: #0b1710;
-      --panel: rgba(14, 31, 20, 0.78);
-      --panel-strong: #102419;
-      --text: #f4f8f5;
-      --muted: #9caf9f;
-      --line: rgba(141, 255, 173, 0.15);
-      --green: #65f28a;
-      --green-strong: #2ed765;
-      --green-dark: #173c23;
-      --shadow: 0 24px 80px rgba(0, 0, 0, 0.32);
-      --max: 1180px;
+      --bg:#07110b;
+      --bg2:#0b1710;
+      --panel:rgba(14,31,20,.78);
+      --text:#f4f8f5;
+      --muted:#9caf9f;
+      --line:rgba(141,255,173,.15);
+      --green:#65f28a;
+      --green2:#2ed765;
+      --max:1180px;
+      --shadow:0 24px 80px rgba(0,0,0,.32);
     }
-
-    * { box-sizing: border-box; }
-
-    html { scroll-behavior: smooth; }
-
-    body {
-      margin: 0;
-      min-height: 100vh;
-      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      color: var(--text);
-      background:
-        radial-gradient(circle at 12% 8%, rgba(46, 215, 101, 0.12), transparent 32rem),
-        radial-gradient(circle at 88% 28%, rgba(101, 242, 138, 0.08), transparent 28rem),
-        linear-gradient(180deg, #061009 0%, #08130c 55%, #050b07 100%);
-      line-height: 1.6;
-    }
-
-    a { color: inherit; text-decoration: none; }
-
-    .wrap {
-      width: min(calc(100% - 2rem), var(--max));
-      margin: 0 auto;
-    }
-
-    .site-header {
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      backdrop-filter: blur(16px);
-      background: rgba(5, 12, 7, 0.78);
-      border-bottom: 1px solid var(--line);
-    }
-
-    .nav {
-      min-height: 72px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 1.5rem;
-    }
-
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 0.8rem;
-      font-weight: 800;
-      letter-spacing: -0.03em;
-    }
-
-    .brand-mark {
-      width: 38px;
-      height: 38px;
-      display: grid;
-      place-items: center;
-      border-radius: 12px;
-      background: linear-gradient(135deg, var(--green), var(--green-strong));
-      color: #041108;
-      font-size: 0.8rem;
-      box-shadow: 0 0 34px rgba(101, 242, 138, 0.2);
-    }
-
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 1.25rem;
-      color: var(--muted);
-      font-size: 0.94rem;
-    }
-
-    .nav-links a:hover { color: var(--text); }
-
-    .button {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 46px;
-      padding: 0.75rem 1.1rem;
-      border-radius: 12px;
-      border: 1px solid var(--line);
-      font-weight: 700;
-      transition: 0.2s ease;
-    }
-
-    .button:hover { transform: translateY(-1px); }
-
-    .button-primary {
-      background: linear-gradient(135deg, var(--green), var(--green-strong));
-      border-color: transparent;
-      color: #051108;
-      box-shadow: 0 14px 38px rgba(46, 215, 101, 0.18);
-    }
-
-    .button-secondary { background: rgba(255, 255, 255, 0.03); }
-
-    .hero {
-      min-height: 78vh;
-      display: grid;
-      align-items: center;
-      padding: 7rem 0 5rem;
-    }
-
-    .hero-grid {
-      display: grid;
-      grid-template-columns: minmax(0, 1.25fr) minmax(300px, 0.75fr);
-      align-items: center;
-      gap: 4rem;
-    }
-
-    .eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.55rem;
-      padding: 0.4rem 0.7rem;
-      border: 1px solid var(--line);
-      border-radius: 999px;
-      color: var(--green);
-      background: rgba(101, 242, 138, 0.05);
-      font-size: 0.8rem;
-      font-weight: 800;
-      letter-spacing: 0.09em;
-      text-transform: uppercase;
-    }
-
-    .eyebrow-dot {
-      width: 7px;
-      height: 7px;
-      border-radius: 50%;
-      background: var(--green);
-      box-shadow: 0 0 14px rgba(101, 242, 138, 0.8);
-    }
-
-    h1, h2, h3, p { margin-top: 0; }
-
-    h1 {
-      max-width: 850px;
-      margin: 1.2rem 0 1.1rem;
-      font-size: clamp(3.2rem, 8vw, 7.3rem);
-      line-height: 0.9;
-      letter-spacing: -0.07em;
-    }
-
-    .hero-accent { color: var(--green); }
-
-    .hero-copy {
-      max-width: 700px;
-      color: var(--muted);
-      font-size: clamp(1.05rem, 1.7vw, 1.25rem);
-    }
-
-    .hero-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.8rem;
-      margin-top: 2rem;
-    }
-
-    .terminal {
-      position: relative;
-      overflow: hidden;
-      border: 1px solid var(--line);
-      border-radius: 22px;
-      background: rgba(3, 9, 5, 0.72);
-      box-shadow: var(--shadow);
-    }
-
-    .terminal::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      pointer-events: none;
-      background: linear-gradient(rgba(255,255,255,0.018) 1px, transparent 1px);
-      background-size: 100% 4px;
-      opacity: 0.38;
-    }
-
-    .terminal-bar {
-      display: flex;
-      align-items: center;
-      gap: 7px;
-      padding: 0.9rem 1rem;
-      border-bottom: 1px solid var(--line);
-    }
-
-    .terminal-dot {
-      width: 9px;
-      height: 9px;
-      border-radius: 50%;
-      background: #31503a;
-    }
-
-    .terminal-body {
-      position: relative;
-      padding: 1.3rem;
-      font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
-      font-size: 0.88rem;
-      color: #b9c7bc;
-    }
-
-    .terminal-body p { margin-bottom: 0.7rem; }
-    .prompt { color: var(--green); }
-    .terminal-muted { color: #647569; }
-
-    .status-row {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 0.6rem;
-      margin-top: 1rem;
-    }
-
-    .status-card {
-      padding: 0.8rem;
-      border: 1px solid var(--line);
-      border-radius: 12px;
-      background: rgba(101, 242, 138, 0.035);
-    }
-
-    .status-card strong {
-      display: block;
-      color: var(--green);
-      font-size: 1rem;
-    }
-
-    .status-card span {
-      color: var(--muted);
-      font-size: 0.72rem;
-    }
-
-    section { padding: 5rem 0; }
-
-    .section-heading {
-      display: grid;
-      grid-template-columns: 0.85fr 1.15fr;
-      gap: 3rem;
-      align-items: end;
-      margin-bottom: 2.5rem;
-    }
-
-    .section-heading h2 {
-      margin-bottom: 0;
-      font-size: clamp(2.2rem, 5vw, 4.2rem);
-      line-height: 0.98;
-      letter-spacing: -0.055em;
-    }
-
-    .section-heading p {
-      margin-bottom: 0;
-      color: var(--muted);
-      font-size: 1.05rem;
-    }
-
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1rem;
-    }
-
-    .card {
-      min-height: 230px;
-      padding: 1.5rem;
-      border: 1px solid var(--line);
-      border-radius: 18px;
-      background: linear-gradient(180deg, rgba(18, 40, 26, 0.7), rgba(8, 19, 12, 0.72));
-      box-shadow: inset 0 1px rgba(255,255,255,0.025);
-    }
-
-    .card-index {
-      display: block;
-      margin-bottom: 2.8rem;
-      color: var(--green);
-      font-family: "SFMono-Regular", Consolas, monospace;
-      font-size: 0.8rem;
-    }
-
-    .card h3 {
-      margin-bottom: 0.55rem;
-      font-size: 1.2rem;
-    }
-
-    .card p { color: var(--muted); margin-bottom: 0; }
-
-    .ecosystem-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 0.7rem;
-    }
-
-    .app-chip {
-      padding: 1rem;
-      border: 1px solid var(--line);
-      border-radius: 14px;
-      background: rgba(255, 255, 255, 0.025);
-    }
-
-    .app-chip strong { display: block; margin-bottom: 0.15rem; }
-    .app-chip span { color: var(--muted); font-size: 0.82rem; }
-
-    .cta {
-      margin: 4rem 0 2rem;
-      padding: clamp(2rem, 5vw, 4.5rem);
-      border: 1px solid rgba(101, 242, 138, 0.22);
-      border-radius: 26px;
-      background:
-        radial-gradient(circle at 90% 20%, rgba(101,242,138,0.13), transparent 20rem),
-        linear-gradient(135deg, #0d2115, #08140c);
-      box-shadow: var(--shadow);
-    }
-
-    .cta h2 {
-      max-width: 760px;
-      margin-bottom: 1rem;
-      font-size: clamp(2.3rem, 5vw, 4.8rem);
-      line-height: 0.98;
-      letter-spacing: -0.055em;
-    }
-
-    .cta p { max-width: 680px; color: var(--muted); }
-
-    footer {
-      padding: 2.5rem 0 3rem;
-      border-top: 1px solid var(--line);
-      color: var(--muted);
-      font-size: 0.9rem;
-    }
-
-    .footer-row {
-      display: flex;
-      justify-content: space-between;
-      gap: 2rem;
-      align-items: center;
-    }
-
-    .footer-links { display: flex; gap: 1rem; }
-    .footer-links a:hover { color: var(--text); }
-
-    @media (max-width: 900px) {
-      .nav-links a:not(.button) { display: none; }
-      .hero-grid,
-      .section-heading { grid-template-columns: 1fr; }
-      .hero { padding-top: 5rem; }
-      .grid { grid-template-columns: 1fr 1fr; }
-      .ecosystem-grid { grid-template-columns: 1fr 1fr; }
-    }
-
-    @media (max-width: 620px) {
-      .wrap { width: min(calc(100% - 1.25rem), var(--max)); }
-      .nav { min-height: 64px; }
-      .brand-text { font-size: 0.94rem; }
-      .nav-links .button { padding: 0.6rem 0.75rem; min-height: 40px; font-size: 0.82rem; }
-      h1 { font-size: clamp(3rem, 18vw, 5rem); }
-      .hero-grid { gap: 2.5rem; }
-      .grid,
-      .ecosystem-grid,
-      .status-row { grid-template-columns: 1fr; }
-      section { padding: 3.5rem 0; }
-      .footer-row { flex-direction: column; align-items: flex-start; }
-    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;min-height:100vh;font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:var(--text);background:radial-gradient(circle at 12% 8%,rgba(46,215,101,.12),transparent 32rem),radial-gradient(circle at 88% 28%,rgba(101,242,138,.08),transparent 28rem),linear-gradient(180deg,#061009 0%,#08130c 55%,#050b07 100%);line-height:1.6}
+    a{color:inherit;text-decoration:none}
+    .wrap{width:min(calc(100% - 2rem),var(--max));margin:0 auto}
+    .site-header{position:sticky;top:0;z-index:100;backdrop-filter:blur(16px);background:rgba(5,12,7,.78);border-bottom:1px solid var(--line)}
+    .nav{min-height:72px;display:flex;align-items:center;justify-content:space-between;gap:1.5rem}
+    .brand{display:flex;align-items:center;gap:.8rem;font-weight:800;letter-spacing:-.03em}
+    .brand-mark{width:38px;height:38px;display:grid;place-items:center;border-radius:12px;background:linear-gradient(135deg,var(--green),var(--green2));color:#041108;font-size:.8rem;box-shadow:0 0 34px rgba(101,242,138,.2)}
+    .nav-links{display:flex;align-items:center;gap:1.25rem;color:var(--muted);font-size:.94rem}
+    .nav-links a:hover{color:var(--text)}
+    .button{display:inline-flex;align-items:center;justify-content:center;min-height:46px;padding:.75rem 1.1rem;border-radius:12px;border:1px solid var(--line);font-weight:700;transition:.2s ease}
+    .button:hover{transform:translateY(-1px)}
+    .button-primary{background:linear-gradient(135deg,var(--green),var(--green2));border-color:transparent;color:#051108;box-shadow:0 14px 38px rgba(46,215,101,.18)}
+    .button-secondary{background:rgba(255,255,255,.03)}
+    .hero{min-height:78vh;display:grid;align-items:center;padding:7rem 0 5rem}
+    .hero-grid{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(300px,.75fr);align-items:center;gap:4rem}
+    .eyebrow{display:inline-flex;align-items:center;gap:.55rem;padding:.4rem .7rem;border:1px solid var(--line);border-radius:999px;color:var(--green);background:rgba(101,242,138,.05);font-size:.8rem;font-weight:800;letter-spacing:.09em;text-transform:uppercase}
+    .eyebrow-dot{width:7px;height:7px;border-radius:50%;background:var(--green);box-shadow:0 0 14px rgba(101,242,138,.8)}
+    h1,h2,h3,p{margin-top:0}
+    h1{max-width:850px;margin:1.2rem 0 1.1rem;font-size:clamp(3.2rem,8vw,7.3rem);line-height:.9;letter-spacing:-.07em}
+    .hero-accent{color:var(--green)}
+    .hero-copy{max-width:700px;color:var(--muted);font-size:clamp(1.05rem,1.7vw,1.25rem)}
+    .hero-actions{display:flex;flex-wrap:wrap;gap:.8rem;margin-top:2rem}
+    .terminal{position:relative;overflow:hidden;border:1px solid var(--line);border-radius:22px;background:rgba(3,9,5,.72);box-shadow:var(--shadow)}
+    .terminal-bar{display:flex;gap:7px;padding:.9rem 1rem;border-bottom:1px solid var(--line)}
+    .terminal-dot{width:9px;height:9px;border-radius:50%;background:#31503a}
+    .terminal-body{padding:1.3rem;font-family:"SFMono-Regular",Consolas,"Liberation Mono",monospace;font-size:.88rem;color:#b9c7bc}
+    .terminal-body p{margin-bottom:.7rem}.prompt{color:var(--green)}.terminal-muted{color:#647569}
+    .status-row{display:grid;grid-template-columns:repeat(3,1fr);gap:.6rem;margin-top:1rem}
+    .status-card{padding:.8rem;border:1px solid var(--line);border-radius:12px;background:rgba(101,242,138,.035)}
+    .status-card strong{display:block;color:var(--green)}.status-card span{color:var(--muted);font-size:.72rem}
+    section{padding:5rem 0}
+    .section-heading{display:grid;grid-template-columns:.85fr 1.15fr;gap:3rem;align-items:end;margin-bottom:2.5rem}
+    .section-heading h2{margin-bottom:0;font-size:clamp(2.2rem,5vw,4.2rem);line-height:.98;letter-spacing:-.055em}
+    .section-heading p{margin-bottom:0;color:var(--muted);font-size:1.05rem}
+    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
+    .card{min-height:230px;padding:1.5rem;border:1px solid var(--line);border-radius:18px;background:linear-gradient(180deg,rgba(18,40,26,.7),rgba(8,19,12,.72))}
+    .card-index{display:block;margin-bottom:2.8rem;color:var(--green);font-family:"SFMono-Regular",Consolas,monospace;font-size:.8rem}
+    .card h3{margin-bottom:.55rem;font-size:1.2rem}.card p{color:var(--muted);margin-bottom:0}
+    .ecosystem-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:.7rem}
+    .app-chip{padding:1rem;border:1px solid var(--line);border-radius:14px;background:rgba(255,255,255,.025)}
+    .app-chip strong{display:block;margin-bottom:.15rem}.app-chip span{color:var(--muted);font-size:.82rem}
+    .cta{margin:4rem 0 2rem;padding:clamp(2rem,5vw,4.5rem);border:1px solid rgba(101,242,138,.22);border-radius:26px;background:radial-gradient(circle at 90% 20%,rgba(101,242,138,.13),transparent 20rem),linear-gradient(135deg,#0d2115,#08140c);box-shadow:var(--shadow)}
+    .cta h2{max-width:760px;margin-bottom:1rem;font-size:clamp(2.3rem,5vw,4.8rem);line-height:.98;letter-spacing:-.055em}.cta p{max-width:680px;color:var(--muted)}
+    footer{padding:2.5rem 0 3rem;border-top:1px solid var(--line);color:var(--muted);font-size:.9rem}
+    .footer-row{display:flex;justify-content:space-between;gap:2rem;align-items:center}.footer-links{display:flex;gap:1rem}.footer-links a:hover{color:var(--text)}
+    @media(max-width:900px){.nav-links a:not(.button){display:none}.hero-grid,.section-heading{grid-template-columns:1fr}.hero{padding-top:5rem}.grid{grid-template-columns:1fr 1fr}.ecosystem-grid{grid-template-columns:1fr 1fr}}
+    @media(max-width:620px){.wrap{width:min(calc(100% - 1.25rem),var(--max))}.nav{min-height:64px}.brand-text{font-size:.94rem}.nav-links .button{padding:.6rem .75rem;min-height:40px;font-size:.82rem}h1{font-size:clamp(3rem,18vw,5rem)}.hero-grid{gap:2.5rem}.grid,.ecosystem-grid,.status-row{grid-template-columns:1fr}section{padding:3.5rem 0}.footer-row{flex-direction:column;align-items:flex-start}}
   </style>
 </head>
 <body>
   <header class="site-header">
     <div class="wrap nav">
-      <a class="brand" href="#top" aria-label="420 Integrated home">
-        <span class="brand-mark">420</span>
-        <span class="brand-text">420 Integrated</span>
+      <a class="brand" href="/" aria-label="420 Integrated home">
+        <span class="brand-mark">420</span><span class="brand-text">420 Integrated</span>
       </a>
       <nav class="nav-links" aria-label="Primary navigation">
-        <a href="#network">Network</a>
-        <a href="#ecosystem">Ecosystem</a>
-        <a href="#developers">Developers</a>
-        <a class="button button-secondary" href="https://github.com/abvhiael" target="_blank" rel="noreferrer">GitHub</a>
+        <a href="/network/">Network</a>
+        <a href="/ecosystem/">Ecosystem</a>
+        <a href="/developers/">Developers</a>
+        <a class="button button-secondary" href="https://github.com/abvhiael/420integrated.org" target="_blank" rel="noreferrer">GitHub</a>
       </nav>
     </div>
   </header>
 
-  <main id="top">
+  <main>
     <section class="hero">
       <div class="wrap hero-grid">
         <div>
@@ -403,17 +93,12 @@
           <h1>one chain.<br><span class="hero-accent">an entire ecosystem.</span></h1>
           <p class="hero-copy">420 Integrated is a blockchain ecosystem being built as shared infrastructure for payments, identity, applications, governance, AI, media, commerce, games and community-owned digital services.</p>
           <div class="hero-actions">
-            <a class="button button-primary" href="#ecosystem">Explore the ecosystem</a>
-            <a class="button button-secondary" href="#developers">Developer overview</a>
+            <a class="button button-primary" href="/ecosystem/">Explore the ecosystem</a>
+            <a class="button button-secondary" href="/developers/">Developer overview</a>
           </div>
         </div>
-
         <aside class="terminal" aria-label="420 Integrated network preview">
-          <div class="terminal-bar">
-            <span class="terminal-dot"></span>
-            <span class="terminal-dot"></span>
-            <span class="terminal-dot"></span>
-          </div>
+          <div class="terminal-bar"><span class="terminal-dot"></span><span class="terminal-dot"></span><span class="terminal-dot"></span></div>
           <div class="terminal-body">
             <p><span class="prompt">$</span> 420 status</p>
             <p class="terminal-muted">preparing genesis ecosystem...</p>
@@ -431,38 +116,21 @@
       </div>
     </section>
 
-    <section id="network">
+    <section>
       <div class="wrap">
-        <div class="section-heading">
-          <h2>infrastructure first.</h2>
-          <p>The project is designed as a connected stack rather than a collection of isolated apps. Network services, identity, discovery, payments, governance and application infrastructure are intended to work together from genesis.</p>
-        </div>
+        <div class="section-heading"><h2>infrastructure first.</h2><p>The project is designed as a connected stack rather than a collection of isolated apps. Network services, identity, discovery, payments, governance and application infrastructure are intended to work together from genesis.</p></div>
         <div class="grid">
-          <article class="card">
-            <span class="card-index">01 / CHAIN</span>
-            <h3>Blockchain foundation</h3>
-            <p>An EVM-compatible base layer with native network services and infrastructure designed around the 420 Integrated application ecosystem.</p>
-          </article>
-          <article class="card">
-            <span class="card-index">02 / PROTOCOLS</span>
-            <h3>Shared primitives</h3>
-            <p>Identity, naming, registries, payments, rights, storage, messaging, randomness, governance and other common capabilities can be reused across applications.</p>
-          </article>
-          <article class="card">
-            <span class="card-index">03 / APPS</span>
-            <h3>Composable ecosystem</h3>
-            <p>Wallets, explorers, markets, media, games and community tools can connect to the same underlying network instead of rebuilding the same infrastructure repeatedly.</p>
-          </article>
+          <article class="card"><span class="card-index">01 / CHAIN</span><h3>Blockchain foundation</h3><p>An EVM-compatible base layer with native network services and infrastructure designed around the 420 Integrated application ecosystem.</p></article>
+          <article class="card"><span class="card-index">02 / PROTOCOLS</span><h3>Shared primitives</h3><p>Identity, naming, registries, payments, rights, storage, messaging, randomness, governance and other common capabilities can be reused across applications.</p></article>
+          <article class="card"><span class="card-index">03 / APPS</span><h3>Composable ecosystem</h3><p>Wallets, explorers, markets, media, games and community tools can connect to the same underlying network instead of rebuilding the same infrastructure repeatedly.</p></article>
         </div>
+        <div class="hero-actions"><a class="button button-secondary" href="/network/">Open network overview</a></div>
       </div>
     </section>
 
-    <section id="ecosystem">
+    <section>
       <div class="wrap">
-        <div class="section-heading">
-          <h2>built around useful software.</h2>
-          <p>The genesis roadmap includes user-facing applications and infrastructure services intended to make the network usable immediately rather than launching as an empty chain.</p>
-        </div>
+        <div class="section-heading"><h2>built around useful software.</h2><p>The genesis roadmap includes user-facing applications and infrastructure services intended to make the network usable immediately rather than launching as an empty chain.</p></div>
         <div class="ecosystem-grid">
           <div class="app-chip"><strong>420 Wallet</strong><span>accounts, assets & network access</span></div>
           <div class="app-chip"><strong>420 Explorer</strong><span>blocks, transactions & network data</span></div>
@@ -477,19 +145,17 @@
           <div class="app-chip"><strong>420 App Store</strong><span>application discovery & distribution</span></div>
           <div class="app-chip"><strong>420 Developer Hub</strong><span>tools, APIs & integration resources</span></div>
         </div>
+        <div class="hero-actions"><a class="button button-primary" href="/ecosystem/">See the full ecosystem</a></div>
       </div>
     </section>
 
-    <section id="developers">
+    <section>
       <div class="wrap">
         <div class="cta">
           <div class="eyebrow"><span class="eyebrow-dot"></span> Open development</div>
           <h2>follow the build from source to genesis.</h2>
           <p>420 Integrated is being developed in public on GitHub. Documentation, network interfaces, developer tooling and application integration resources will be connected here as they become ready for use.</p>
-          <div class="hero-actions">
-            <a class="button button-primary" href="https://github.com/abvhiael" target="_blank" rel="noreferrer">Open GitHub</a>
-            <a class="button button-secondary" href="#top">Back to top</a>
-          </div>
+          <div class="hero-actions"><a class="button button-primary" href="/developers/">Developer resources</a><a class="button button-secondary" href="https://github.com/abvhiael/420integrated.org" target="_blank" rel="noreferrer">Open GitHub</a></div>
         </div>
       </div>
     </section>
@@ -498,10 +164,7 @@
   <footer>
     <div class="wrap footer-row">
       <div>© 2026 420 Integrated. Genesis infrastructure in active development.</div>
-      <div class="footer-links">
-        <a href="https://github.com/abvhiael" target="_blank" rel="noreferrer">GitHub</a>
-        <a href="mailto:contact@420integrated.org">Contact</a>
-      </div>
+      <div class="footer-links"><a href="/network/">Network</a><a href="/ecosystem/">Ecosystem</a><a href="/developers/">Developers</a><a href="mailto:contact@420integrated.org">Contact</a></div>
     </div>
   </footer>
 </body>
